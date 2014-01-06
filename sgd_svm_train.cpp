@@ -84,7 +84,6 @@ int step_train(const Instance &instance, Weight &weight, Param &param)
         // iterate all instance feature
         // w = w - eta*(lambda*w - y_label*x)
         if (loss > 0) {
-            param.loss_hinge += loss;
             w_i = w_i - param.eta*(param.lambda*w_i - y_label*fea.val);
         }
         // right classfy
@@ -95,6 +94,10 @@ int step_train(const Instance &instance, Weight &weight, Param &param)
         }
 
         weight.w_vec[fea.idx] = w_i;
+    }
+
+    if (loss > 0) {
+        param.loss_hinge += loss;
     }
 
     if (loss <= 0) 

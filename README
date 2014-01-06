@@ -1,13 +1,17 @@
 
 sgd-svm is a implemention of Support vector machine train by Stochastic gradient descent.
 
-1, Train
+1. Train
 The input file format is:
-<label> <feature>:<value> ... <feature>:<value>
+	<label> <feature>:<value> ... <feature>:<value>
+label is -1 or 1
 
 build model:
 ./sgd_svm_train iteration lambda trainname modelname
 
 
-2, Predict
+2. Predict
 ./sgd_svm_predict modelname testfile
+
+3. Test
+sh run.sh
